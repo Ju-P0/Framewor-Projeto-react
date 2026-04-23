@@ -1,20 +1,44 @@
 import CardJogo from "../componentes/CardJogo";
-import BarraPesquisa from "../componentes/BarraPesquisa";
 import { useState } from "react";
+import "./Home.css";
 
 function Home() {
-  const jogos = [{ id: 1, nome: "Geometric Trash" }];
+  const jogos = [
+    { id: 1, nome: "Geometric Trash" },
+    { id: 2, nome: "Pink Stardust" },
+    { id: 3, nome: "Bunny Rush" },
+  ];
   const [searchQuery, setSearchQuery] = useState("");
 
-  function funcionamentoPesquisa() {
+  const filteredJogos = jogos.filter((jogo) =>
+    jogo.nome.toLowerCase().includes(searchQuery.toLowerCase().trim()),
+  );
+
+  function funcionamentoPesquisa(e) {
     e.preventDefault();
-    alert(searchQuery);
+    if (!searchQuery.trim()) return;
     setSearchQuery("");
   }
 
   return (
     <div className="home">
-      <div>
+      <section className="hero">
+        <div className="hero__content">
+          <span className="hero__tag">💖 Cantinho dos games indies</span>
+          <h1>Descubra jogos divertidos!</h1>
+          <p>
+            Encontre inspiração gamer, explore os títulos e deixe a
+            sua tarde mais divertida.
+          </p>
+        </div>
+        <div className="hero__sparkles">
+          <span>✨</span>
+          <span>🌸</span>
+          <span>💗</span>
+        </div>
+      </section>
+
+      <section className="searchSection">
         <form onSubmit={funcionamentoPesquisa} className="barraPesquisa">
           <input
             type="text"
@@ -27,16 +51,16 @@ function Home() {
             ⌕
           </button>
         </form>
-      </div>
+      </section>
 
       <div className="gridJogos">
-        {jogos.map(
-          (jogo) =>
-            jogo.nome
-              .toLocaleLowerCase()
-              .startsWith(searchQuery.toLowerCase()) && (
-              <CardJogo jogo={jogo} key={jogo.id} />
-            ),
+        {filteredJogos.length > 0 ? (
+          filteredJogos.map((jogo) => <CardJogo jogo={jogo} key={jogo.id} />)
+        ) : (
+          <div className="emptyState">
+            Nenhum jogo encontrado. Tente outro nome para encontrar algo mais
+            fofo.
+          </div>
         )}
       </div>
     </div>

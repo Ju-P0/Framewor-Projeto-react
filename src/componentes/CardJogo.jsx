@@ -2,10 +2,15 @@ function CardJogo({ jogo }) {
   function favoritar() {
     alert("Favoritado!");
   }
+
   return (
     <div className="cardJogo">
       <div className="cardJogo__imagem">
-        <img src={jogo.url} alt={jogo.nome} />
+        {jogo.url ? (
+          <img src={jogo.url} alt={jogo.nome} />
+        ) : (
+          <div className="cardJogo__placeholder">🎀</div>
+        )}
         <div className="overlay">
           <button className="btnFavoritar" onClick={favoritar}>
             ☆
