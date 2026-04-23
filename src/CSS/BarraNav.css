@@ -1,28 +1,32 @@
-/* RESET BÁSICO */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* GARANTE TELA CHEIA */
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
 }
 
-/* LAYOUT PRINCIPAL */
 #root {
   display: flex;
   flex-direction: column;
-  background: radial-gradient(circle at top left, #ffd6ec 0%, #ffeffa 35%, #fce9f6 100%);
+  background: radial-gradient(
+    circle at top left,
+    #ffd6ec 0%,
+    #ffeffa 35%,
+    #fce9f6 100%
+  );
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* NAVBAR */
 .barraNav {
   width: 100%;
-  
+  align-self: auto;
   background: rgba(255, 241, 250, 0.92);
   display: flex;
   align-items: center;
@@ -33,15 +37,13 @@ html, body, #root {
   box-shadow: 0 24px 70px rgba(255, 144, 197, 0.18);
   backdrop-filter: blur(18px);
   margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
 /* LOGO */
-
-
 .logoImg {
   width: 158px;
   height: 90px;
-
 }
 
 /* LINKS */
@@ -83,7 +85,7 @@ html, body, #root {
     justify-content: center;
   }
 }
- 
+
 /* MENU DIREITA */
 .menuNav {
   display: flex;
@@ -134,5 +136,5 @@ html, body, #root {
   padding: 15px;
   border-radius: 12px;
   width: 200px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }

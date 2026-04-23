@@ -1,6 +1,6 @@
 import CardJogo from "../componentes/CardJogo";
 import { useState } from "react";
-import "./Home.css";
+import "../CSS/Home.css";
 
 function Home() {
   const jogos = [
@@ -27,8 +27,8 @@ function Home() {
           <span className="hero__tag">💖 Cantinho dos games indies</span>
           <h1>Descubra jogos divertidos!</h1>
           <p>
-            Encontre inspiração gamer, explore os títulos e deixe a
-            sua tarde mais divertida.
+            Encontre inspiração gamer, explore os títulos e deixe a sua tarde
+            mais divertida.
           </p>
         </div>
         <div className="hero__sparkles">
