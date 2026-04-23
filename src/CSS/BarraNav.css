@@ -1,0 +1,21 @@
+nav {
+  width: 100%;
+  padding: 1rem 5%;
+  background-color: rgb(230, 230, 230);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.linkNav {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logoSite {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
