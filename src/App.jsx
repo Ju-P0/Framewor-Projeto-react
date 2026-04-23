@@ -1,7 +1,6 @@
-import { Route } from "react-router-dom";
 import "./App.css";
 import Home from "./paginas/Home";
-import { Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Favoritos from "./paginas/Favoritos";
 import BarraNav from "./componentes/BarraNav";
 import MenuUsuario from "./paginas/MenuUsuario";

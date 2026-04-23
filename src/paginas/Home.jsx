@@ -17,7 +17,7 @@ function Home() {
   function funcionamentoPesquisa(e) {
     e.preventDefault();
     if (!searchQuery.trim()) return;
-    setSearchQuery("");
+    setSearchQuery(searchQuery);
   }
 
   return (
