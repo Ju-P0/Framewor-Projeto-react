@@ -3,9 +3,10 @@ import { useState } from "react";
 function BarraPesquisa() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  function funcionamentoPesquisa() {
-    alert(searchQuery);
-    setSearchQuery("");
+  function funcionamentoPesquisa(e) {
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+    setSearchQuery(searchQuery);
   }
 
   return (
