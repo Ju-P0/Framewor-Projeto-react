@@ -6,6 +6,7 @@ import BarraNav from "./componentes/BarraNav";
 import MenuUsuario from "./paginas/MenuUsuario";
 import RodaPe from "./componentes/RodaPe";
 import Jogo from "./paginas/Jogo";
+import Cadastro from "./paginas/Cadastro";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/favoritos" element={<Favoritos />} />
           <Route path="/menuUsuario" element={<MenuUsuario />} />
           <Route path="/jogo" element={<Jogo />} />
+          <Route path="/cadastro" element={<Cadastro />} />
         </Routes>
       </main>
       <RodaPe />

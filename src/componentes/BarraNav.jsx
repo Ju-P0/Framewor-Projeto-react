@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../CSS/BarraNav.css";
 import BarraPesquisa from "./BarraPesquisa";
 import popplayLogo from "../imgs/logo popplay.png";
 
-function BarraNav() {
+export default function BarraNav() {
+  let logado = false;
+
   return (
     <nav className="barraNav">
       <div className="logoSite">
@@ -23,12 +25,10 @@ function BarraNav() {
         </Link>
       </div>
       <div>
-        <Link to="/menuUsuario" className="linkNav">
-          Menu de Usuário
+        <Link to={logado ? "/menuUsuario" : "/cadastro"} className="linkNav">
+          <div className="PerfilImg"></div>
         </Link>
       </div>
     </nav>
   );
 }
-
-export default BarraNav;
