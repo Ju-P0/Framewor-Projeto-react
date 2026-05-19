@@ -2,7 +2,7 @@ import CardJogo from "../componentes/CardJogo";
 import { useState } from "react";
 import "../CSS/Home.css";
 
-function Home() {
+export default function Home() {
   const jogos = [
     { id: 1, nome: "Geometric Trash" },
     { id: 2, nome: "      Roblox     " },
@@ -72,5 +72,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
