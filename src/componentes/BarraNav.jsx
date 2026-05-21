@@ -4,7 +4,7 @@ import BarraPesquisa from "./BarraPesquisa";
 import popplayLogo from "../imgs/logo popplay.png";
 
 export default function BarraNav() {
-  let logado = true;
+  let logado = false;
 
   return (
     <nav className="barraNav">
