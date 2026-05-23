@@ -1,17 +1,25 @@
 import CardJogo from "../componentes/CardJogo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../CSS/Home.css";
+import { chamarAPI, url } from "../services/ChamadaAPI";
 
 export default function Home() {
-  const jogos = [
-    { id: 1, nome: "Geometric Trash" },
-    { id: 2, nome: "      Roblox     " },
-    { id: 3, nome: "Fireboy & Watergirl" },
-  ];
+  const [carregando, setCarregando] = useState(false);
+  const [jogos, setJogos] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  useEffect(() => {
+    async function buscarJogos() {
+      const data = await chamarAPI(url, setCarregando);
+      if (data?.results) {
+        setJogos(data.results);
+      }
+    }
+    buscarJogos();
+  }, []);
+
   const filteredJogos = jogos.filter((jogo) =>
-    jogo.nome.toLowerCase().includes(searchQuery.toLowerCase().trim()),
+    jogo.name.toLowerCase().includes(searchQuery.toLowerCase().trim()),
   );
 
   function funcionamentoPesquisa(e) {

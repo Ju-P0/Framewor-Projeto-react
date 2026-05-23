@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { validarFormulario } from "../services/Validacao"; // Importando a validação
 import "../CSS/Cadastro.css";
+import Modal from 'react-modal';
 
 export default function Cadastro() {
   const [nomeUsuario, setNomeUsuario] = useState("");

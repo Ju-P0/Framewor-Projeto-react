@@ -57,10 +57,12 @@ body,
   transition: all 0.18s ease;
 }
 
-.linkNav:hover {
+.linkHome:hover,
+.linkFavs:hover {
   color: #8e3d88;
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 10px 26px rgba(255, 142, 190, 0.16);
+  border-radius: 999px;
 }
 
 .linkHome,

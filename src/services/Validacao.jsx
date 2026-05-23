@@ -46,3 +46,5 @@ export function validarFormulario(dados) {
   }
   return { ok: true, msg: null };
 }
+
+export function validarFoto() {}

@@ -15,8 +15,8 @@ function CardJogo({ jogo }) {
     <div className="cardJogo">
       <button className="BtnCardJogo" onClick={() => navegar("/jogo")}>
         <div className="cardJogo__imagem">
-          {jogo.url ? (
-            <img src={jogo.url} alt={jogo.nome} />
+          {jogo.background_image ? (
+            <img src={jogo.background_image} alt={jogo.name} />
           ) : (
             <div className="cardJogo__placeholder">🎀</div>
           )}
@@ -27,7 +27,7 @@ function CardJogo({ jogo }) {
           </div>
         </div>
         <div className="tituloJogo">
-          <h2>{jogo.nome}</h2>
+          <h2>{jogo.name}</h2>
         </div>
       </button>
     </div>
