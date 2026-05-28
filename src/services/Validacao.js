@@ -1,6 +1,7 @@
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SENHA_MIN_LENGTH = 8;
 
+// Validação Cadastro //
 export function validarFormulario(dados) {
   const erros = {};
 
@@ -20,7 +21,9 @@ export function validarFormulario(dados) {
 
   return erros;
 }
+// ---------------------------------------- //
 
+// Validação MenuUsuário //
 export function validarMenuUsuario(dados) {
   const erros = {};
 

@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function CardJogo({ jogo }) {
-  const [isOpen, setIsOpen] = useState(false);
-
   const navegar = useNavigate();
 
   function favoritar() {
@@ -16,7 +14,7 @@ function CardJogo({ jogo }) {
       <button className="BtnCardJogo" onClick={() => navegar("/jogo")}>
         <div className="cardJogo__imagem">
           {jogo.background_image ? (
-            <img src={jogo.background_image} alt={jogo.name} />
+            <img src={jogo.background_image} alt={jogo.name} /> //pega da API a ft do jogo e o nome
           ) : (
             <div className="cardJogo__placeholder">🎀</div>
           )}
@@ -27,8 +25,8 @@ function CardJogo({ jogo }) {
           </div>
         </div>
         <div className="tituloJogo">
-          <h2>{jogo.name}</h2>
-        </div>
+          <h2>{jogo.name}</h2> 
+        </div> 
       </button>
     </div>
   );

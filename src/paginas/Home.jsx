@@ -1,13 +1,14 @@
 import CardJogo from "../componentes/CardJogo";
 import { useState, useEffect } from "react";
 import "../CSS/Home.css";
-import { chamarAPI, url } from "../services/ChamadaAPI";
+import { chamarAPI, url } from "../services/ChamadaAPI"; //importa a API
 
 export default function Home() {
   const [carregando, setCarregando] = useState(false);
   const [jogos, setJogos] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Pega a API //
   useEffect(() => {
     async function buscarJogos() {
       const data = await chamarAPI(url, setCarregando);
@@ -17,7 +18,9 @@ export default function Home() {
     }
     buscarJogos();
   }, []);
+  // ------------------------------------- //
 
+  // pesquisa //
   const filteredJogos = jogos.filter((jogo) =>
     jogo.name.toLowerCase().includes(searchQuery.toLowerCase().trim()),
   );
@@ -27,6 +30,7 @@ export default function Home() {
     if (!searchQuery.trim()) return;
     setSearchQuery(searchQuery);
   }
+  // ------------------------------------- //
 
   return (
     <div className="home">

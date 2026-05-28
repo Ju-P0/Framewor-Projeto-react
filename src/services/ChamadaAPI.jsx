@@ -1,6 +1,6 @@
 const APIKEY = "8d56f75105db4a71a30b3f8b7502102d";
 
-export const url = `https://api.rawg.io/api/games?key=${APIKEY}&page_size=6`;
+export const url = `https://api.rawg.io/api/games?key=${APIKEY}&page_size=6`; //Chama a api e limita para 6 por página
 
 export async function chamarAPI(url, setCarregando) {
   setCarregando(true);

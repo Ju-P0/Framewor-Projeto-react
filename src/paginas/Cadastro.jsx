@@ -4,6 +4,7 @@ import "../CSS/Cadastro.css";
 import Modal from "react-modal";
 
 export default function Cadastro() {
+  // Gerenciamento de estados //
   const [campos, setCampos] = useState({
     nome: "",
     email: "",
@@ -16,27 +17,18 @@ export default function Cadastro() {
     const { name, value } = e.target;
     setCampos((prev) => ({ ...prev, [name]: value }));
   }
-
+  // ----------------------------------------- //
+  // Lidar com o envio do formulário //
   function handleSubmit(e) {
     e.preventDefault();
 
-    // Pegando os valores diretamente dos inputs (já que não há estados para todos)
-    const dados = {
-      nome: e.target.nomeUsuário.value,
-      email: e.target.emailUsuario.value,
-      senha: e.target.senhaUsuário.value,
-      confirma: e.target.confirmacaoSenha.value,
-    };
-
-    const errosValidacao = validarFormulario(dados);
-
+    const errosValidacao = validarFormulario(campos);
     setErros(errosValidacao);
 
     if (Object.keys(errosValidacao).length > 0) return;
-
     alert("Cadastro passou na validação!");
   }
-
+    // ----------------------------------------- //
   return (
     <div className="Cadastro-page">
       <div className="Cadastro-container">
@@ -44,13 +36,13 @@ export default function Cadastro() {
         <form onSubmit={handleSubmit} className="Cadastro-form">
           {/* Nome usuário */}
           <div className="InputForm" id="NomeUsuário">
-            <label htmlFor="nomeUsuário">Nome de Usuário: </label>
+            <label htmlFor="nome">Nome de Usuário: </label>
             <input
               type="text"
-              name="nomeUsuário"
+              name="nome"
               placeholder="Digites seu nome de usuário"
               className="inputPadrao"
-              value={campos.nomeUsuário}
+              value={campos.nome} //lida com o valor do campo
               onChange={handleChange}
             ></input>
             <p className="erro" id="erroNomeUsuario">
@@ -60,13 +52,13 @@ export default function Cadastro() {
 
           {/* Email Usuário */}
           <div className="InputForm">
-            <label htmlFor="emailUsuario">Email: </label>
+            <label htmlFor="email">Email: </label>
             <input
               type="text"
-              name="emailUsuario"
+              name="email"
               placeholder="Digites seu email"
               className="inputPadrao"
-              value={campos.emailUsuario}
+              value={campos.email}
               onChange={handleChange}
             ></input>
             <p className="erro" id="erroEmail">
@@ -76,13 +68,13 @@ export default function Cadastro() {
 
           {/* Senha Usuário */}
           <div className="InputForm">
-            <label htmlFor="senhaUsuário">Senha: </label>
+            <label htmlFor="senha">Senha: </label>
             <input
               type="text"
-              name="senhaUsuário"
+              name="senha"
               placeholder="Digites sua senha"
               className="inputPadrao"
-              value={campos.senhaUsuário}
+              value={campos.senha}
               onChange={handleChange}
             ></input>
             <p className="erro" id="erroSenha">
@@ -92,13 +84,13 @@ export default function Cadastro() {
 
           {/* Confirmação Senha usuário */}
           <div className="InputForm">
-            <label htmlFor="confirmacaoSenha">Confirme a Senha: </label>
+            <label htmlFor="confirma">Confirme a Senha: </label>
             <input
               type="text"
-              name="confirmacaoSenha"
+              name="confirma"
               placeholder="Confirme sua senha"
               className="inputPadrao"
-              value={campos.confirmacaoSenha}
+              value={campos.confirma}
               onChange={handleChange}
             ></input>
             <p className="erro" id="erroSenhaConfirmacao">
