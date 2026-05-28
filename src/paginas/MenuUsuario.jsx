@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { validarEmail } from "../services/Validacao";
+import { validarMenuUsuario } from "../services/Validacao.js";
 import "../CSS/MenuUsuario.css"; // Lembre-se de ajustar o caminho da pasta CSS se necessário
 
 export default function MenuUsuario({ usuario }) {
   const [fotoPerfil, setFotoPerfil] = useState("");
   const [nomeUsuario, setNomeUsuario] = useState(usuario ? usuario.nome : "");
   const [email, setEmail] = useState(usuario ? usuario.email : "");
+  const [erros, setErros] = useState({});
 
   // Função simples para mostrar a imagem que o usuário escolheu
   function handleFotoChange(e) {
@@ -18,12 +19,9 @@ export default function MenuUsuario({ usuario }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const validacaoEmail = validarEmail({ email: email });
-
-    if (validacaoEmail && !validacaoEmail.ok) {
-      alert(validacaoEmail.msg);
-      return;
-    }
+    const errosValidacao = validarMenuUsuario({ email });
+    setErros(errosValidacao);
+    if (Object.keys(errosValidacao).length > 0) return;
 
     alert("Alterações salvas com sucesso!");
   }
